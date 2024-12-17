@@ -17,58 +17,71 @@ with open('style.css') as f:
 
 from streamlit_option_menu import option_menu
 
+# Responsividade CSS
+st.markdown("""
+<style>
+/* Responsividade */
+@media (max-width: 768px) {
+    .block-container {
+        padding: 1rem;
+    }
+    .nav-bar-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-bar {
+        flex-direction: column;
+        width: 100%;
+    }
+}
 
+/* Customização da barra de navegação */
+.nav-bar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fafafa;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    padding: 0 20px;
+}
 
+.nav-bar {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# Banner
 with st.container():
-    # Abrir e redimensionar a imagem
     image = Image.open("img/Banner_logo.jpg")
     st.image(image, use_container_width=True)
 
-# Remover espaço em branco no topo da barra de menu
+# Remover espaço em branco
 st.markdown("""
-        <style>
-               .block-container {
-                    padding-top: 0rem;
-                    padding-bottom: 0rem;
-                    padding-left: 5rem;
-                    padding-right: 5rem;
-                }
-        </style>
-        """, unsafe_allow_html=True)
+    <style>
+        .block-container {
+            padding-top: 0rem;
+            padding-bottom: 0rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+    </style>
+""", unsafe_allow_html=True)
 
 selected = "Home"
 
-# Carregar a página com base na seleção
+# Navegação
 with st.container():
-    # Contêiner flex para barra de navegação
-    st.markdown("""
-        <style>
-            .nav-bar-container {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                background-color: #fafafa;
-                width: 100vw;
-                position: fixed;
-                top: 0;
-                z-index: 1000;
-                padding: 0 20px; /* Espaçamento lateral */
-            }
-            .nav-bar {
-                display: flex;
-                justify-content: center;
-                flex-grow: 1;
-            }
-        </style>
-    """, unsafe_allow_html=True)
-
-    # HTML para o contêiner
     st.markdown("""
         <div class="nav-bar-container">
             <div class="nav-bar">
     """, unsafe_allow_html=True)
 
-    # Menu superior de navegação
     selected = option_menu(
         None,
         ["Home", "Análise", "Resumo", "Mapa", "Previsão", "Sobre"],
@@ -84,10 +97,10 @@ with st.container():
             },
             "icon": {
                 "color": "orange",
-                "font-size": "25px",
+                "font-size": "20px",
             },
             "nav-link": {
-                "font-size": "16px",
+                "font-size": "14px",
                 "text-align": "center",
                 "margin": "0px",
                 "--hover-color": "#b6d7a8",
@@ -100,13 +113,12 @@ with st.container():
         }
     )
 
-    # Fechando a div da barra de navegação
     st.markdown("""
             </div>
         </div>
     """, unsafe_allow_html=True)
 
-# Carregar a página com base na seleção
+# Carregar páginas
 if selected == "Home":
     home.show()
 elif selected == "Análise":
