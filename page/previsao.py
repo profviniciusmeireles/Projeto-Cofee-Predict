@@ -88,7 +88,7 @@ def show():
                 col0, col1 = st.columns(2)
                 with col0:
                     if variavel_previsao == 'Producao':
-                        st.info(f"Produção estimada: {previsao_poly:.2f} mil sacas.")  # Mude para previsao_linear se desejar
+                        st.info(f"Produção estimada: {previsao_poly:.0f} mil sacas.")  # Mude para previsao_linear se desejar
                     elif variavel_previsao == 'Produtividade':
                         st.info(f"Produtividade estimada: {previsao_poly:.2f} sacas/ha")  # Mude para previsao_linear se desejar
                     else:
