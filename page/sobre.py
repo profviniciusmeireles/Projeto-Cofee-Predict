@@ -7,23 +7,17 @@ with open('style.css')as f:
 def show():
     with st.container(border=True):
         
-        st.markdown("<h2 style='text-align: center; color: #ffc130;'>👩‍🎓💻 Sobre o projeto acadêmico</h2>", unsafe_allow_html=True)        
+        st.markdown("<h2 style='text-align: center; color: #ffc130;'>👩‍🎓💻 Sobre o projeto</h2>", unsafe_allow_html=True)        
        
-        col0, col1 = st.columns([4, 3])
+        col0, col1 = st.columns([2.5, 5])
         with col0:
 
             st.markdown("")
-            st.subheader("Equipe do projeto:", divider='green')
-            st.markdown("""<h6 style='text-align: justify;'> Alunos: </h6""", unsafe_allow_html=True)
-            st.markdown("""<h6 style='text-align: justify;'> -- Beathriz Gomes de Freitas; </h6""", unsafe_allow_html=True)
-            st.markdown("""<h6 style='text-align: justify;'> -- Ellen Hubner Souza; </h6""", unsafe_allow_html=True)
-            st.markdown("""<h6 style='text-align: justify;'> -- Emanuela Ramos Ribeiro; </h6""", unsafe_allow_html=True)
-            st.markdown("""<h6 style='text-align: justify;'> -- Nicolas Daniel de Oliveira Silveira. </h6""", unsafe_allow_html=True)
-            st.markdown("""<h6 style='text-align: justify;'> Desenvolvedor e Orientador: Profº. Esp. Paulo Vinicius Meireles. </h6""", unsafe_allow_html=True)
-            st.markdown("""<h6 style='text-align: justify;'> Profº: Dr. Fábio da Silveira Castro. </h6""", unsafe_allow_html=True)
-            st.markdown("""<h6 style='text-align: justify;'> Disciplina: Práticas Florestais Supervisionadas II (2024-2025). </h6""", unsafe_allow_html=True)
-            st.markdown("""<h6 style='text-align: justify;'> Curso Técnico em Florestas Integrado ao Ensino Médio - Ifes Campus Ibatiba. </h6""", unsafe_allow_html=True)
-            st.markdown("""<h6 style='text-align: justify;'> Projeto TCC: Sistema Coffee Predict (Previsão da Produção/Produtividade do Café no ES e MG). </h6""", unsafe_allow_html=True)
+            st.subheader("Projeto:", divider='green')
+            
+            st.markdown("""<h6 style='text-align: justify;'> Desenvolvedor e Cientista de Dados: Profº. Esp. Paulo Vinicius Meireles. </h6""", unsafe_allow_html=True)
+            st.markdown("""<h6 style='text-align: justify;'> Sistema Coffee Predict (Previsão da Produção/Produtividade do Café no ES e MG). </h6""", unsafe_allow_html=True)
+            st.image("img/logo.png", use_container_width=True)
             #st.subheader("", divider='green')
         
         with col1:      

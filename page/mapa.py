@@ -67,13 +67,12 @@ def show():
 
                 # Exibe métricas no formato adaptado
                 st.metric(label=f"{maior_produtor} (Maior Produtor)", 
-                        value=f"R${valor_total:,.0f} mil", 
-                        delta=f"{quantidade_total:,.0f} toneladas")
+                    value=f"R${valor_total:,.0f} mil".replace(",", "."), 
+                    delta=f"{quantidade_total:,.0f} toneladas".replace(",", "."))
 
                 st.metric(label=f"{menor_produtor} (Menor Produtor)",   
-                        value=f"R${df_ano_filtered['VALOR'].min():,.0f} mil", 
-                        delta=f"{df_ano_filtered['QUANTIDADE'].min():,.0f} toneladas")
-
+                    value=f"R${df_ano_filtered['VALOR'].min():,.0f} mil".replace(",", "."), 
+                    delta=f"{df_ano_filtered['QUANTIDADE'].min():,.0f} toneladas".replace(",", "."))
             else:
                 st.metric(label="Sem Dados", value="N/A", delta="N/A")
 
@@ -83,9 +82,9 @@ def show():
                 rendimento_kg_por_hectare = round(rendimento_medio, 2)
                 st.metric(
                     label="Rendimento Médio (Kg/Hectare)",
-                    value=f"{rendimento_kg_por_hectare} Kg/ha",
-                    delta=f"{area_total:,.0f} hectares"
-                )
+                    value=f"{rendimento_kg_por_hectare} Kg/ha".replace(",", "."),
+                    delta=f"{area_total:,.0f} hectares".replace(",", "."))
+                
             else:
                 st.metric(label="Rendimento Médio", value="N/A", delta="N/A")
 

@@ -87,8 +87,6 @@ def show():
                 produtividade = df_selecionado['Produtividade'].mean()
                 area_producao = df_selecionado['Area em Producao'].sum()
                 media_producao = df_selecionado['Producao'].mean()
-                max_producao = df_selecionado['Producao'].max()
-                min_producao = df_selecionado['Producao'].min()
                 media_area = df_selecionado['Area em Producao'].mean()
                 
             # Usando a função para calcular o percentual de produtividade
@@ -106,13 +104,13 @@ def show():
                 st.metric("Produtividade Média", f"{produtividade:.2f} sacas/ha") 
                 st.metric("Área de Produção", f"{area_producao:.2f} ha") 
         
-                                
+                                   
             col0, col1= st.columns(2)
             with col0:
                 st.metric("Média da Produção", f"{media_producao:.2f} mil sacas")
-                st.metric("Maior Produção", f"{max_producao:.2f} mil sacas")
+                
             with col1:    
-                st.metric("Menor Produção", f"{min_producao:.2f} sacas/ha") 
+                 
                 st.metric("Área média de Produção", f"{media_area:.2f} ha") 
                                 
         style_metric_cards(background_color="##D2691E", border_left_color="#8B4513", border_color="#F4A460", box_shadow="#F71938")

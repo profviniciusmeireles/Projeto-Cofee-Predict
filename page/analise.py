@@ -308,6 +308,14 @@ def show():
                     st.info(f" {estado} é o maior produtor de café do Brasil, apresenta uma bienalidade fortemente influenciada por fatores como condições climáticas, onde períodos de chuva favorecem anos de alta produção. As práticas de manejo (poda e descanso das plantas) ajudam a manter o ciclo de bienalidade, enquanto a diversidade de solo e topografia propicia variações de produção. Além disso, a carga nutricional do solo é crucial; anos de alta produtividade podem esgotar os nutrientes, impactando a produção no ciclo seguinte. ")    
 
         with tabs[3]:  
+
+            # Renomeando as colunas
+            df.rename(columns={
+                'PRODUCAO': 'Producao mil sacas',
+                'AREA': 'Area em Producao ha',
+                'PRODUTIVIDADE': 'Produtividade mil sacas/ha'
+            }, inplace=True)
+            
             # Configuração de estilo para o DataFrame
             styled_df = df.drop('id', axis=1).style.set_properties(
                 **{
@@ -340,5 +348,7 @@ def show():
             # Remover o índice antes de exibir a tabela
             styled_df = styled_df.hide(axis="index")
 
+           
+            
             with st.expander("📑 Tabela de Dados", expanded=True):
                 st.table(styled_df)
